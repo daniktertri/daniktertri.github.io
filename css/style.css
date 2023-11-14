@@ -1,8 +1,8 @@
 article {
     display: flex;
     background-image: linear-gradient(
-      rgb(0, 150, 125), 
-      rgb(168, 77, 208)
+      rgb(249, 148, 249), 
+      rgb(243, 220, 249)
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -22,7 +22,7 @@ article {
     box-sizing: border-box;
     display: grid;
     place-content: center;
-    position: relative;
+    position: relative; 
     font-family: system-ui;
     font-size: min(200%, 5vmin);
   }
@@ -70,10 +70,10 @@ article {
     background-size: 300% 300%;
     background-image: linear-gradient(
           -45deg, 
-          rgb(170, 166, 166) 0%, 
-          rgb(23, 22, 22) 25%, 
-          rgb(23, 22, 22) 51%, 
-          rgb(170, 166, 166) 100%
+          rgb(105, 128, 221) 0%, 
+          rgb(136, 213, 223) 25%, 
+          rgb(112, 172, 245) 51%, 
+          rgb(170, 108, 237) 100%
     );  
     animation: AnimateBG 20s ease infinite;
   }
