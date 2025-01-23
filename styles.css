@@ -1,80 +1,96 @@
+/* General Styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #f4f4f4;
-  }
-  
-  .container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  h1 {
-    text-align: center;
-    margin: 0 0 20px;
-  }
-  
-  .bottom-menu {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    background-color: #fff;
-    border-top: 1px solid #ccc;
-  }
-  
-  .bottom-menu a {
-    flex: 1;
-    padding: 10px 0;
-    text-align: center;
-    text-decoration: none;
-    color: #666;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .bottom-menu a:hover {
-    background-color: #ddd;
-  }
-  
-  .bottom-menu a.active {
-    color: #000;
-    font-weight: bold;
-  }
-  
-  .icon {
-    font-size: 24px;
-    margin-bottom: 5px;
-  }
-  
-  /* Leaderboard styling */
-  .leaderboard {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse;
-  }
-  
-  .leaderboard th, .leaderboard td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ccc;
-  }
-  
-  .leaderboard th {
-    background-color: #f0f0f0;
-  }
-  
-  .leaderboard td {
-    background-color: #fff;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #121212; /* Black background */
+  color: #f0f0f0; /* Light text */
+}
+
+/* Containers */
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.box {
+  background: linear-gradient(145deg, rgba(255, 105, 97, 0.6), rgba(97, 255, 105, 0.6)); /* Faded pastel red and green */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Headings */
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Bottom Menu */
+.bottom-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  background-color: #1e1e1e; /* Dark gray */
+  border-top: 1px solid #333;
+}
+
+.bottom-menu a {
+  flex: 1;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  color: #aaa;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.bottom-menu a:hover {
+  color: #f0f0f0; /* Light text on hover */
+}
+
+.bottom-menu a.active {
+  color: #ff6961; /* Highlighted with faded red */
+  font-weight: bold;
+}
+
+.icon {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+/* Leaderboard */
+.leaderboard {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+}
+
+.leaderboard th,
+.leaderboard td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+}
+
+.leaderboard th {
+  background-color: rgba(255, 105, 97, 0.3); /* Faded pastel red */
+}
+
+.leaderboard td {
+  background-color: rgba(97, 255, 105, 0.3); /* Faded pastel green */
+}
