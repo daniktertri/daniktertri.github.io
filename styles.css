@@ -1,0 +1,86 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+}
+
+/* Content area */
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Bottom navigation bar */
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu items */
+.menu-item {
+    text-align: center;
+    color: #aaa;
+    flex: 1;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.menu-item.active {
+    color: #2a9d8f;
+}
+
+.menu-item i {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+/* Icons (using Font Awesome or placeholder classes) */
+.icon-mining::before {
+    content: '⚡';
+}
+
+.icon-service::before {
+    content: '#';
+}
+
+.icon-statistics::before {
+    content: '📊';
+}
+
+.icon-tasks::before {
+    content: '✔️';
+}
+
+.icon-token::before {
+    content: 'ℹ️';
+}
+
+/* Text under icons */
+.menu-item span {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Hover effects */
+.menu-item:hover {
+    color: #1d3557;
+}
