@@ -3,42 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web App with Leaderboard</title>
+  <title>Stylish Web App</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container" id="mining">
-    <h1>Mining</h1>
-    <p>You selected the Mining tab.</p>
+    <div class="box">
+      <h1>Mining</h1>
+      <p>You selected the Mining tab.</p>
+    </div>
   </div>
 
   <div class="container" id="service" style="display: none;">
-    <h1>Service</h1>
-    <p>You selected the Service tab.</p>
+    <div class="box">
+      <h1>Service</h1>
+      <p>You selected the Service tab.</p>
+    </div>
   </div>
 
   <div class="container" id="statistics" style="display: none;">
-    <h1>Leaderboard</h1>
-    <table id="leaderboard" class="leaderboard">
-      <thead>
-        <tr>
-          <th>Rank</th>
-          <th>Name</th>
-          <th>Score</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+    <div class="box">
+      <h1>Leaderboard</h1>
+      <table id="leaderboard" class="leaderboard">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </div>
 
   <div class="container" id="tasks" style="display: none;">
-    <h1>Tasks</h1>
-    <p>You selected the Tasks tab.</p>
+    <div class="box">
+      <h1>Tasks</h1>
+      <p>You selected the Tasks tab.</p>
+    </div>
   </div>
 
   <div class="container" id="token" style="display: none;">
-    <h1>Token</h1>
-    <p>You selected the Token tab.</p>
+    <div class="box">
+      <h1>Token</h1>
+      <p>You selected the Token tab.</p>
+    </div>
   </div>
 
   <div class="bottom-menu">
@@ -67,4 +77,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
