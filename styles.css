@@ -1,86 +1,80 @@
-/* General styles */
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    background: linear-gradient(to bottom, #f9f9f9, #ffffff);
-}
-
-/* Content area */
-.content {
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  
+  h1 {
     text-align: center;
-    padding: 20px;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Bottom navigation bar */
-.bottom-menu {
+    margin: 0 0 20px;
+  }
+  
+  .bottom-menu {
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
-    background-color: #ffffff;
-    border-top: 1px solid #ddd;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 70px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Menu items */
-.menu-item {
-    text-align: center;
-    color: #aaa;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+  }
+  
+  .bottom-menu a {
     flex: 1;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.menu-item.active {
-    color: #2a9d8f;
-}
-
-.menu-item i {
-    display: block;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bottom-menu a:hover {
+    background-color: #ddd;
+  }
+  
+  .bottom-menu a.active {
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .icon {
     font-size: 24px;
     margin-bottom: 5px;
-}
-
-/* Icons (using Font Awesome or placeholder classes) */
-.icon-mining::before {
-    content: '⚡';
-}
-
-.icon-service::before {
-    content: '#';
-}
-
-.icon-statistics::before {
-    content: '📊';
-}
-
-.icon-tasks::before {
-    content: '✔️';
-}
-
-.icon-token::before {
-    content: 'ℹ️';
-}
-
-/* Text under icons */
-.menu-item span {
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Hover effects */
-.menu-item:hover {
-    color: #1d3557;
-}
+  }
+  
+  /* Leaderboard styling */
+  .leaderboard {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
+  
+  .leaderboard th, .leaderboard td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+  
+  .leaderboard th {
+    background-color: #f0f0f0;
+  }
+  
+  .leaderboard td {
+    background-color: #fff;
+  }
+  
