@@ -8,6 +8,9 @@ body {
   height: 100vh;
   background-color: #121212; /* Black background */
   color: #f0f0f0; /* Light text */
+  overflow: hidden;         /* Disable scrolling */
+  overscroll-behavior: none; /* Prevent overscroll */
+  touch-action: none;
 }
 
 /* Containers */
