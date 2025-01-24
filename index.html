@@ -1,81 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
+    <!--<base href="/" />-->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Stylish Web App</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container" id="mining">
-    <div class="box">
-      <h1>Mining</h1>
-      <p>You selected the Mining tab.</p>
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="hashcash">
+  <meta name="clipboard-write" content="clipboard-write" />
+  <script src="https://telegram.org/js/telegram-web-app.js?v2"></script>
+    <meta name="description" content="hashcash" />
+    <meta name="clipboard-write" content="clipboard-write" />
+    <title>Chronos</title>
+    <link rel="manifest" href="manifest.json" />
+    <style>html, body {
+        background-color: #000000;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        font-family: 'Fira Code', 'Courier New', monospace;
+      }
+      .ascii-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 20px; /* Minimum padding from edges */
+        box-sizing: border-box; /* Include padding in width/height calculations */
+        user-select: none; /* Disable text selection */
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+      }
+      .ascii-container {
+        font-family: 'Fira Code', 'Courier New', monospace;
+        color: white;
+        white-space: pre;
+        text-align: center;
+        line-height: 1.1; /* Increased line height to 1.5 */
+        width: 60vw;
+        height: 60vw;
+        max-width: 500px;
+        max-height: 500px;
+        min-width: 200px; /* Minimum width */
+        min-height: 200px; /* Minimum height */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center lines horizontally */
+        justify-content: center; /* Center lines vertically */
+        overflow: visible; /* Ensure art is not cropped */
+      }
+      .ascii-line {
+        display: block;
+        text-align: left; /* Align text to the left within each line */
+      }
+      .ascii-char {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ascii-wrapper">
+      <div class="ascii-container" id="asciiContainer"></div>
     </div>
-  </div>
 
-  <div class="container" id="service" style="display: none;">
-    <div class="box">
-      <h1>Service</h1>
-      <p>You selected the Service tab.</p>
-    </div>
-  </div>
-
-  <div class="container" id="statistics" style="display: none;">
-    <div class="box">
-      <h1>Leaderboard</h1>
-      <table id="leaderboard" class="leaderboard">
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="container" id="tasks" style="display: none;">
-    <div class="box">
-      <h1>Tasks</h1>
-      <p>You selected the Tasks tab.</p>
-    </div>
-  </div>
-
-  <div class="container" id="token" style="display: none;">
-    <div class="box">
-      <h1>Token</h1>
-      <p>You selected the Token tab.</p>
-    </div>
-  </div>
-
-  <div class="bottom-menu">
-    <a href="#" data-section="mining" class="active">
-      <span class="icon">⚡</span>
-      Mining
-    </a>
-    <a href="#" data-section="service">
-      <span class="icon">#</span>
-      Service
-    </a>
-    <a href="#" data-section="statistics">
-      <span class="icon">📊</span>
-      Statistics
-    </a>
-    <a href="#" data-section="tasks">
-      <span class="icon">📋</span>
-      Tasks
-    </a>
-    <a href="#" data-section="token">
-      <span class="icon">ℹ️</span>
-      Token
-    </a>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script>
+      const asciiContainer = document.getElementById('asciiContainer');
+      const colors = ['#edf2fb', '#e2eafc', '#d7e3fc', '#ccdbfd', '#c1d3fe', '#b6ccfe', '#abc4ff']; // Predefined grayscale colors
+      const hashtagShape = [
+        "       $$$$$$$$$$$$$$$$$$$$$  ",
+        "       $$$$$$$$$$$$$$$$$$$$$  ",
+        "        $$               $$   ",
+        "        $$               $$   ",
+        "          $$           $$     ",
+        "            $$       $$       ",
+        "              $$   $$         ",
+        "                $$$           ",      
+        "              $$   $$         ",
+        "            $$       $$       ",
+        "          $$           $$     ",
+        "        $$               $$   ",
+        "        $$               $$   ",
+        "       $$$$$$$$$$$$$$$$$$$$$  ",
+        "       $$$$$$$$$$$$$$$$$$$$$  ",
+        "                              ",    
+        "  $$$$$      $$$$$$     $$       $$   $$  $$$     $$   $$$$$                   ",
+        "$$    $$   $$      $$   $$ $$ $$ $$       $$ $    $$  $$   $$                  ",
+        "$$         $$      $$   $$   $   $$   $$  $$  $   $$  $$                       ",
+        "$$         $$      $$   $$       $$   $$  $$   $  $$  $$  $$$                  ",
+        "$$         $$      $$   $$       $$   $$  $$    $ $$  $$   $$                  ",
+        "$$    $$   $$      $$   $$       $$   $$  $$     $$$  $$   $$  $$$  $$$  $$$   ",      
+        "  $$$$$      $$$$$$     $$       $$   $$  $$      $$   $$$$$   $$$  $$$  $$$   "      
+      ];
+    
+      // Expanded symbols to shuffle (a-z, A-Z, 0-9, and original symbols)
+      const symbolsToShuffle = new Set([
+        '$', 'x', 'X', 'Z', 'z', '6', '7','+' ,
+      ]);
+      const shuffleSymbols = Array.from(symbolsToShuffle); // Convert to array for random selection
+    
+      // Create the ASCII art structure using DocumentFragment
+      function createAsciiArt() {
+        const fragment = document.createDocumentFragment();
+        for (let line of hashtagShape) {
+          const lineDiv = document.createElement('div');
+          lineDiv.className = 'ascii-line';
+          for (let char of line) {
+            const charSpan = document.createElement('span');
+            charSpan.className = 'ascii-char';
+            charSpan.textContent = char;
+            charSpan.style.color = colors[Math.floor(Math.random() * colors.length)];
+            lineDiv.appendChild(charSpan);
+          }
+          fragment.appendChild(lineDiv);
+        }
+        asciiContainer.appendChild(fragment);
+      }
+    
+      // Cache active character elements (non-space characters)
+      let chars = [];
+    
+      // Update the ASCII art with new symbols and colors
+      function updateAsciiArt() {
+        const numToUpdate = Math.ceil(chars.length * 0.1); // Update 10% of characters per frame
+        for (let i = 0; i < numToUpdate; i++) {
+          const randomIndex = Math.floor(Math.random() * chars.length);
+          const char = chars[randomIndex];
+          const currentChar = char.textContent;
+    
+          // Only shuffle specific symbols
+          if (symbolsToShuffle.has(currentChar)) {
+            // Replace with another symbol from the shuffleSymbols array
+            const newSymbol = shuffleSymbols[Math.floor(Math.random() * shuffleSymbols.length)];
+            char.textContent = newSymbol;
+          }
+    
+          // Always update the color
+          char.style.color = colors[Math.floor(Math.random() * colors.length)];
+        }
+      }
+    
+      // Adjust font size dynamically based on container size
+      function adjustFontSize() {
+        const containerWidth = asciiContainer.clientWidth;
+        const containerHeight = asciiContainer.clientHeight;
+        const maxLineLength = Math.max(...hashtagShape.map(line => line.length));
+        const numLines = hashtagShape.length;
+        const fontSizeBasedOnWidth = containerWidth / maxLineLength;
+        const fontSizeBasedOnHeight = containerHeight / numLines;
+        const fontSize = Math.min(fontSizeBasedOnWidth, fontSizeBasedOnHeight);
+        const minFontSize = 6; // Minimum font size
+        const maxFontSize = 13; // Maximum font size
+        asciiContainer.style.fontSize = `${Math.min(Math.max(fontSize, minFontSize), maxFontSize)}px`;
+      }
+    
+      // Initialize the ASCII art
+      createAsciiArt();
+    
+      // Cache active character elements after the art is created
+      chars = Array.from(document.querySelectorAll('.ascii-char')).filter(char => char.textContent !== ' ');
+    
+      // Animate the ASCII art with throttling
+      let lastUpdate = 0;
+      const frameRate = 30; // Target frame rate
+      const frameDelay = 1000 / frameRate;
+      let animationFrameId;
+    
+      function animate(timestamp) {
+        if (timestamp - lastUpdate >= frameDelay) {
+          updateAsciiArt();
+          lastUpdate = timestamp;
+        }
+        animationFrameId = requestAnimationFrame(animate);
+      }
+      animate();
+    
+      // Debounce resize handler
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          adjustFontSize();
+          chars = Array.from(document.querySelectorAll('.ascii-char')).filter(char => char.textContent !== ' '); // Re-cache characters
+        }, 100);
+      }, { passive: true });
+    
+      // Initial font size adjustment
+      adjustFontSize();
+    
+      // Telegram WebApp initialization
+      window.Telegram.WebApp.disableVerticalSwipes();
+      window.Telegram.WebApp.setBackgroundColor("#000000");
+      window.Telegram.WebApp.setBottomBarColor("#000000");
+      window.Telegram.WebApp.setHeaderColor("#000000");
+      window.Telegram.WebApp.expand();
+      window.Telegram.WebApp.ready();
+    
+      window.addEventListener("flutter-first-frame", function() {
+        const container = document.getElementById('ascii-wrapper');
+        if (container) {
+          container.parentNode.removeChild(container);
+          cancelAnimationFrame(animationFrameId); // Stop the animation when the container is removed
+        }
+      });
+    </script>
+  </body>
 </html>
-
 
