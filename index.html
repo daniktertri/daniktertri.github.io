@@ -40,10 +40,10 @@
       }
       .ascii-container {
         font-family: 'Fira Code', 'Courier New', monospace;
-        color: white;
+        color: rgb(255, 255, 255);
         white-space: pre;
         text-align: center;
-        line-height: 1.1; /* Increased line height to 1.5 */
+        line-height: 1.17; /* Increased line height to 1.5 */
         width: 60vw;
         height: 60vw;
         max-width: 500px;
@@ -69,10 +69,9 @@
     <div class="ascii-wrapper">
       <div class="ascii-container" id="asciiContainer"></div>
     </div>
-
     <script>
       const asciiContainer = document.getElementById('asciiContainer');
-      const colors = ['#edf2fb', '#e2eafc', '#d7e3fc', '#ccdbfd', '#c1d3fe', '#b6ccfe', '#abc4ff']; // Predefined grayscale colors
+      const colors = ['#FFFFFF','']; // Predefined bluescale colors
       const hashtagShape = [
         "       $$$$$$$$$$$$$$$$$$$$$  ",
         "       $$$$$$$$$$$$$$$$$$$$$  ",
@@ -89,14 +88,7 @@
         "        $$               $$   ",
         "       $$$$$$$$$$$$$$$$$$$$$  ",
         "       $$$$$$$$$$$$$$$$$$$$$  ",
-        "                              ",    
-        "  $$$$$     $$$$$     $$     $$  $$  $$     $$   $$$$$                   ",
-        "$$    $$  $$      $$  $$ $ $ $$      $$$    $$  $$   $$                  ",
-        "$$        $$      $$  $$  $  $$  $$  $$ $   $$  $$                       ",
-        "$$        $$      $$  $$     $$  $$  $$  $  $$  $$  $$$                  ",
-        "$$        $$      $$  $$     $$  $$  $$   $ $$  $$   $$                  ",
-        "$$    $$  $$      $$  $$     $$  $$  $$    $$$  $$   $$  $$$  $$$  $$$   ",      
-        "  $$$$$     $$$$$     $$     $$  $$  $$     $$   $$$$$   $$$  $$$  $$$   "      
+        "                              "  
       ];
     
       // Expanded symbols to shuffle (a-z, A-Z, 0-9, and original symbols)
@@ -155,8 +147,8 @@
         const fontSizeBasedOnWidth = containerWidth / maxLineLength;
         const fontSizeBasedOnHeight = containerHeight / numLines;
         const fontSize = Math.min(fontSizeBasedOnWidth, fontSizeBasedOnHeight);
-        const minFontSize = 6; // Minimum font size
-        const maxFontSize = 13; // Maximum font size
+        const minFontSize = 8; // Minimum font size was 6
+        const maxFontSize = 16; // Maximum font size was 13
         asciiContainer.style.fontSize = `${Math.min(Math.max(fontSize, minFontSize), maxFontSize)}px`;
       }
     
